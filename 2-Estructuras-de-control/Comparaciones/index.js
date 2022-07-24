@@ -3,14 +3,14 @@
 // Igualdad 
 // == igualdad debil(valor), === igualdad fuerte(valor y tipo de dato)
 
+// block
 if(10 == 10){
     console.log("igualdad debil");
 }
 
+// in line 
+if(10 === 10) console.log("igualdad fuerte");
 
-if(10 === 10){
-    console.log("igualdad fuerte");
-}
 
 let a = 5, b=5
 
