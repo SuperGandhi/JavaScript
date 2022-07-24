@@ -19,3 +19,27 @@ for (let i = 0; i < array.length; i++) {
 // console.log(i);
 // console.log(o);
 // console.log(r);
+
+
+
+// labels 
+// nos permiten nombrar los bucles for o while
+
+let unidades = 0;
+let decenas=0;
+
+bucleDecenas: while (true) {
+    bucleUnidades: while (true) {
+        console.log(`El numero actul es: ${unidades} ${decenas}`);
+        unidades++
+        if (unidades === 10) {
+            unidades = 0
+            break bucleDecenas;
+        }
+        if (decenas === 2) {
+            console.log(`El numero actul es: ${unidades} ${decenas}`);
+            break bucleUnidades;
+        }
+    }
+    decenas++
+}
