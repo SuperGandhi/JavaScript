@@ -28,3 +28,11 @@ console.log(ar_str);
 const set = new Set([2,3,'hi', 4])
 const ar_set = Array.from(set)
 console.log(ar_set);
+
+// Obtener un iterable de los indices
+
+const keys = array.keys()
+console.log(keys);
+
+const array_keys = Array.from(keys);
+console.log(array_keys);
