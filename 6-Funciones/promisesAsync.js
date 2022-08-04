@@ -29,3 +29,5 @@ myPromise
     .then(() => console.log("Success"));
     // .catch(() => console.log("Error"));
     // .finally(() => console.log("Always"))
+
+// async await
