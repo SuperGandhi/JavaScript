@@ -11,5 +11,4 @@ function* take(n,iter){
 
 const tak = take();
 
-console.log(tak.next().value);
 
