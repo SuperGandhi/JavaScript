@@ -12,3 +12,16 @@ logger.info("Hi I'm informative message");
 logger.warn("Hi is an warning");
 logger.debug("Hi I'm debug");
 logger.error("Hi I'm ERROR")
+
+const greeting = "Hello"
+
+try{
+    console.log("Success");
+    const greetingTwo = miFunc("Hellow")
+    console.log(greetingTwo);
+}catch(e){
+    console.log(`El valor de e es: ${e}`);
+    console.log(e);
+}finally{
+    console.log("Se ejecuta si hay o no error");
+}
