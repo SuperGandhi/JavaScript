@@ -1,17 +1,14 @@
-var myObj = {
-    gift: "pony",
-    pet: "kitten",
-    bed: "sleigh",
-    city: "Seattle"
-  };
+function checkObj(obj, checkProp) {
+    // Only change code below this line
   
-  function checkObj(checkProp) {
-    // Your Code Here
-    if (myObj.hasOwnProperty(checkProp)) 
-    return myObj[checkProp]; // If true return the prop  
+    var myObj = {
+      gift: "pony",
+      pet: "kitten",
+      bed: "sleigh",
+      city: "Seattle"
+    };
   
-    return "Not Found";
+    return (obj.hasOwnProperty(checkProp)) ? myObj[checkProp] : "Not Found";
+  
+    // Only change code above this line
   }
-  
-  // Test your code by modifying these values
-  checkObj("pet");
