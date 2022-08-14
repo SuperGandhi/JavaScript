@@ -19,3 +19,8 @@
     background-color: white;
     visibility: hidden;
 }
+
+.delete-img{
+    width: 5px;
+    height: 5px;
+}

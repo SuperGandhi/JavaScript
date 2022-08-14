@@ -9,6 +9,8 @@ parrafos.forEach(parrafo =>{
         event.dataTransfer.setData("id", parrafo.id)
         const image = document.querySelector(".img")
         event.dataTransfer.setDragImage(image,0,0)
+        // const clearData = document.querySelector(".delete-img")
+        // event.dataTransfer.clearData(clearData)
     })
 
     parrafo.addEventListener("dragend", ()=>{
@@ -31,3 +33,9 @@ sections.forEach(section => {
         section.appendChild(parrafo)
     })
 })
+
+function eliminar(e){
+    const elementoArrastrado = document.getElementById(e.dataTransfer.getData(".delete-img")); // Elemento arrastrado
+    elementoArrastrado.parentNode.removeChild(elementoArrastrado); // Elimina el elemento
+    e.target.style.border = '';   // Quita el borde
+}
