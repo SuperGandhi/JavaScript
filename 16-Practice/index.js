@@ -65,11 +65,11 @@ console.log(sumOfPrimes(10));
 const isPerfect = function (number) { // user var --> global conflict
     let sumOfFactors = 0; // user var --> global conflict
     for (let index = 1; index <= number; index++) { // the variable was not declared
-        if (number % index === 0) { // use == 
+        if (number % index === 0) { // use == to compare
             sumOfFactors += index;
         }
     }
-    return sumOfFactors === number * 2;  // use == 
+    return sumOfFactors === number * 2;  // use == to compare
 };
 for (let i = 1; i <= 10; i++) { // the variable was not declared
     console.log('is ' + i + ' perfect?: ' + isPerfect(i));
