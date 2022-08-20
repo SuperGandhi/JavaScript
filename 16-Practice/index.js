@@ -7,13 +7,13 @@
 // Example 1
 
 const oops = function () {
-    haha = 2; // the variable was not declared
+    let haha = 2; // the variable was not declared
 
     console.log(haha);
 };
 
 oops();
-console.log(haha);
+// console.log(haha);
 
 // Example 2
 const outer = function () {
@@ -74,3 +74,19 @@ const isPerfect = function (number) { // user var --> global conflict
 for (let i = 1; i <= 10; i++) { // the variable was not declared
     console.log('is ' + i + ' perfect?: ' + isPerfect(i));
 }
+
+var max = 100;
+console.log(max);
+
+var max = 200;
+console.log(max);
+
+
+console.log(message);
+console.log('Entering loop');
+for(var i = 0; i < 3; i++) {
+console.log(message); //visible here, but undefined
+var message = 'spill ' + i;
+}
+console.log('Exiting loop');
+console.log(message);
