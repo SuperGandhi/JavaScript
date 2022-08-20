@@ -69,7 +69,7 @@ const isPerfect = function (number) { // user var --> global conflict
             sumOfFactors += index;
         }
     }
-    return sumOfFactors === number * 2;  // use == to compare
+    return sumOfFactors === number * 2; // use == to compare
 };
 for (let i = 1; i <= 10; i++) { // the variable was not declared
     console.log('is ' + i + ' perfect?: ' + isPerfect(i));
@@ -84,9 +84,17 @@ console.log(max);
 
 console.log(message);
 console.log('Entering loop');
-for(var i = 0; i < 3; i++) {
-console.log(message); //visible here, but undefined
-var message = 'spill ' + i;
+for (var i = 0; i < 3; i++) {
+    console.log(message); //visible here, but undefined
+    var message = 'spill ' + i;
 }
 console.log('Exiting loop');
 console.log(message);
+
+
+let factor = 2;
+let product = function (number) {
+    return number * factor;
+};
+factor = 0;
+console.log(product(4));
