@@ -98,3 +98,61 @@ let product = function (number) {
 };
 factor = 0;
 console.log(product(4));
+
+
+
+// USE TO CONST, LET AND VAR
+
+const sam = Object.freeze({
+    first: 'Sam',
+    age: 2
+}); // with freeze method the properties of this object will be inmutable
+//sam = {}; //ERROR, the reference sam is immutable
+// sam.age = 3;
+console.log(sam.age);
+
+
+// Exercise 1
+// What’s the output of this code? , before modify the code to produce a reasonably desired result
+function first() {
+    for (let i = 0; i < 5; i++) {
+        second();
+    }
+}
+
+function second() {
+    for (let i = 0; i < 3; i++) {
+        console.log(i);
+    }
+}
+first();
+
+// Exercise 2
+// What are the benefits of using 'use strict';
+
+/**
+ * It’s easier to write "secure" JavaScript codes. 
+ * It changes previously accepted "bad syntax" into real errors.
+ */
+
+// Exercise 3
+
+// Will this code result in an error?
+
+const fourth = '4th'; // type error as fourth is declared as a const
+fourth = fourth;
+console.log(fourth);
+
+
+// Exercise 5
+// Will this code result in an error?
+
+const person = Object.freeze({ // the method freeze can only access firts level properties
+    name: 'John Doe', 
+    address: {
+        street: '101 Main St.',
+        City: 'New York'
+    }
+});
+person.address.street = '102 Main St.'; // type error 
+console.log(person);
