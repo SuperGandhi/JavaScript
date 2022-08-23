@@ -91,8 +91,73 @@ console.log([...names2, 'Meathead', ...names1]);
 
 // This is a feature used quite extensively in the popular JavaScript state container library Redux
 
-const sam = { name: 'Sam', age: 2 };
+const sam = {
+    name: 'Sam',
+    age: 2
+};
 console.log(sam);
-console.log({...sam, age: 3});
-console.log({...sam, age: 4, height: 100 });
+console.log({
+    ...sam,
+    age: 3
+});
+console.log({
+    ...sam,
+    age: 4,
+    height: 100
+});
 console.log(sam);
+
+// Without default parameter
+
+const sortByTitle = function (books) {
+    const byTitle = function (book1, book2) {
+        return book1.title.localeCompare(book2.title);
+    };
+    return books.slice().sort(byTitle);
+};
+
+// Using default parameter
+
+
+const books = [{
+        title: 'Who Moved My Cheese'
+    },
+    {
+        title: 'Great Expectations'
+    },
+    {
+        title: 'The Power of Positive Thinking'
+    }
+];
+
+
+const sortByTitleTwo = function (books, ascending = true) {
+    // obtiene 1 si el valor ascendente es True
+    // y -1 en caso contrario
+    const multiplier = ascending ? 1 : -1;
+    const byTitle = function (book1, book2) {
+        return book1.title.localeCompare(book2.title) * multiplier;
+    };
+    return books.slice().sort(byTitle);
+};
+
+console.log(sortByTitle(books));
+console.log(sortByTitle(books, false));
+
+
+// Multiple default parameters
+
+const fetchData = function (
+    id,
+    location = {
+        host: 'localhost',
+        port: 443
+    },
+    uri = 'employees') {
+    console.log('Fetch data from https://' +
+        location.host + ':' + location.port + '/' + uri);
+};
+
+fetchData(1, { host: 'agiledeveloper', port: 404 }, 'books');
+fetchData(1, { host: 'agiledeveloper', port: 404 });
+fetchData(2);
