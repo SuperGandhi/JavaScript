@@ -158,6 +158,116 @@ const fetchData = function (
         location.host + ':' + location.port + '/' + uri);
 };
 
-fetchData(1, { host: 'agiledeveloper', port: 404 }, 'books');
-fetchData(1, { host: 'agiledeveloper', port: 404 });
+fetchData(1, {
+    host: 'agiledeveloper',
+    port: 404
+}, 'books');
+fetchData(1, {
+    host: 'agiledeveloper',
+    port: 404
+});
 fetchData(2);
+
+// Expressions as default values
+
+
+const fileTax = function (papers, dateOfFiling = new Date()) {
+    console.log('dateOfFiling: ' + dateOfFiling.getFullYear());
+};
+
+fileTax('stuff', new Date('2016-12-31'));
+fileTax('stuff');
+
+
+// Exercises
+
+/**
+ * 
+ * Exercise 1 
+ * 
+ * An amountAfterTaxes() function returns the total amount after all the taxes are
+ * applied. Let’s implement that function so the output for each call in the next
+ * code shows up as expected
+ * 
+ */
+
+const amountAfterTaxes = function (amount, ...taxes) {
+    const computeTaxForAmount = function (tax) {
+        return amount * tax / 100.0;
+    };
+    const totalValues = function (total, value) {
+        return total + value;
+    };
+    return taxes.map(computeTaxForAmount)
+        .reduce(totalValues, amount).toFixed(2);
+    //or, using arrow functions:
+    //return taxes.map(tax => amount * tax / 100.0)
+    // .reduce((total, value) => total + value, amount)
+    // .toFixed(2);
+};
+const amount = 25.12;
+const fedTax = 10;
+const stateTax = 2;
+const localTax = 0.5;
+console.log(amountAfterTaxes(amount)); //25.12
+console.log(amountAfterTaxes(amount, fedTax)); //27.63
+console.log(amountAfterTaxes(amount, fedTax, stateTax)); //28.13
+console.log(amountAfterTaxes(amount, fedTax, stateTax, localTax)); //28.26
+
+
+/**
+ * Exercise 2 and 3
+ * 
+ * The purchaseItems() function merely prints the parameters it receives, after a
+ * little formatting. Two calls to the function are shown. Let’s implement a third
+ * call to the function so that it produces the desired result.
+ * 
+ */
+
+const purchaseItems = function (essential1 = 'milk',
+    essential2 = 'bread', ...optionals) {
+    console.log(essential1 + ', ' + essential2 + ', ' + optionals.join(', '));
+};
+const items = ['cheese', 'milk'];
+purchaseItems('cheese'); //cheese, bread,
+purchaseItems(...items); //cheese, milk,
+purchaseItems(); //milk, bread,
+
+/**
+ * Exercise 4
+ * 
+ * The placeOrder() function assumes values for shipping and date if those values
+ * are not given. Let’s fix the parameter list so the function behaves as expected.
+ * 
+ */
+
+const placeOrder = function (
+    id, amount,
+    shipping = (amount < 20 ? 5 : 10),
+    date = new Date()) {
+    console.log(' shipping charge for id: ' +
+        id + ' is $' + shipping + ' Date:' + date.getDate());
+};
+//shipping, if not given, is $5 if amount less than 20 else $10
+//date is today's date unless given
+placeOrder(1, 12.10, 3, new Date('05/15/2018'));
+placeOrder(1, 25.20, 10);
+placeOrder(1, 12.05);
+placeOrder(1, 25.30);
+placeOrder(1, 25.20);
+
+/**
+ * Exercise 5
+ * 
+ * In the previous example, how can we pass the value for the date parameter
+ * without passing a value for the shipping parameter?
+ * 
+ */
+
+const placeOrderTwo = function (
+    id, amount,
+    shipping = (amount < 20 ? 5 : 10),
+    date = new Date()) {
+    console.log(' shipping charge:$' + shipping + ' Date:' + date.getDate());
+};
+placeOrder(1, 12.10, undefined, new Date('05/15/2018'));
