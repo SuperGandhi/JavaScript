@@ -241,7 +241,7 @@ purchaseItems(); //milk, bread,
  * 
  */
 
-const placeOrder = function (
+ const placeOrder = function (
     id, amount,
     shipping = (amount < 20 ? 5 : 10),
     date = new Date()) {
@@ -264,7 +264,7 @@ placeOrder(1, 25.20);
  * 
  */
 
- const placeOrderTwo = function (
+const placeOrderTwo = function (
     id, amount,
     shipping = (amount < 20 ? 5 : 10),
     date = new Date()) {
