@@ -241,7 +241,7 @@ purchaseItems(); //milk, bread,
  * 
  */
 
- const placeOrder = function (
+const placeOrder = function (
     id, amount,
     shipping = (amount < 20 ? 5 : 10),
     date = new Date()) {
@@ -271,3 +271,77 @@ const placeOrderTwo = function (
     console.log(' shipping charge:$' + shipping + ' Date:' + date.getDate());
 };
 placeOrder(1, 12.10, undefined, new Date('05/15/2018'));
+
+
+// Arrow functions and functional style
+
+/*  Exercise 1
+    Does JavaScript use lexical scoping or dynamic scoping for anonymous
+    functions? How about for arrow functions?
+*/
+
+
+
+
+
+/**Exercise 2
+ * 
+ * Refactor the following code to make it concise and to use arrow functions.
+ */
+
+const success = function (value) {
+    return {
+        value: value
+    };
+};
+const blowup = function (value) {
+    throw new Error('blowing up with value ' + value);
+};
+const process = function (successFn, errorFn) {
+    const value = Math.round(Math.random() * 100, 2);
+    if (value > 50) {
+        return successFn(value);
+    } else {
+        return errorFn(value);
+    }
+};
+try {
+    console.log(process(success, blowup));
+} catch (ex) {
+    console.log(ex.message);
+}
+
+/**Exercise 3
+ * Make an effort to convert the following function to an arrow function:
+ */
+
+const greet = function (...names) {
+    console.log(this + ' ' + names.join(', '));
+};
+const helloJackJill = greet.bind('hello', 'Jack', 'Jill');
+helloJackJill(); //hello Jack, Jill
+
+/**Exercise 4
+ * What’s wrong with this code? Fix it so the code produces the correct/desired
+   result.
+ */
+
+const samy = {
+    name: 'Sam',
+    age: 2,
+    play: (toy) => 'I am ' + this.name + ', age ' + this.age + ' with ' + toy
+};
+console.log(sam.play('ball'));
+
+/**Exercise 5
+ * Rewrite the following imperative code to functional style.
+ */
+
+const numbers = [1, 5, 2, 6, 8, 3, 4, 9, 7, 6];
+let totalOfDoubleOfEven = 0;
+for (const number of numbers) {
+    if (number % 2 === 0) {
+        totalOfDoubleOfEven += number * 2;
+    }
+}
+console.log(totalOfDoubleOfEven);
