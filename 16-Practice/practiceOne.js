@@ -156,3 +156,4 @@ const person = Object.freeze({ // the method freeze can only access firts level 
 });
 person.address.street = '102 Main St.'; // type error 
 console.log(person);
+// respueta valida 
